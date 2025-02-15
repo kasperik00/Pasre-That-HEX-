@@ -1,0 +1,16 @@
+import sys
+
+in_frame = sys.argv[1]
+out_frame = sys.argv[2]
+
+fin = open(i_fname, 'r')
+fout = open(out_fname, 'wb')
+
+outdata = bytes()
+for line in fin:
+      data = line.split()
+      for d in data:
+          if len(d) == 1:
+                d = '0' + d
+          outdata += bytes.fromhex(d)
+fout.write(outdata)
